@@ -27,9 +27,4 @@ public class LoginPage {
     	CommonMethodsUtil.clickAndWait(driver, locLoginbtn);
    	}
 	
-    public void login() {
-    	setUsername();
-    	setPassword();
-    	clickLoginButton();
-    }
 }

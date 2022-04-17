@@ -14,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestSetup {
 
-	WebDriver driver;
+	static WebDriver driver;
 	Properties pro;
 
 	@BeforeClass

@@ -4,11 +4,18 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonMethodsUtil {
 
@@ -32,13 +39,42 @@ public class CommonMethodsUtil {
 		By element = formByProp(locName);
 		driver.findElement(element).click();
 	}
-	
+
 	public static void clearAndType(WebDriver driver, String locName, String value) {
 		By element = formByProp(locName);
-		WebElement ele=driver.findElement(element);
+		WebElement ele = driver.findElement(element);
 		ele.clear();
 		ele.sendKeys(value);
-		
+	}
+
+	public static String getTextOfElement(WebDriver driver, String locName) {
+		By element = formByProp(locName);
+		WebElement ele = driver.findElement(element);
+		String value = ele.getText();
+		return value;
+	}
+
+	public static String getAttributeValueOfElement(WebDriver driver, String locName, String attributeName) {
+		WebElement ele = driver.findElement(formByProp(locName));
+		String value = ele.getAttribute(attributeName);
+		return value;
+	}
+
+	public static void selectDropdownValue(WebDriver driver, String locName, String value) {
+		Select dropdown = new Select(driver.findElement(formByProp(locName)));
+		dropdown.selectByVisibleText(value);
+	}
+
+	public static void captureScreenshot(WebDriver driver, String destination) {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File srcFile = ts.getScreenshotAs(OutputType.FILE);
+		File destFile = new File(destination);
+		try {
+			FileUtils.copyFile(srcFile, destFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public static By formByProp(String element) {
@@ -74,6 +110,19 @@ public class CommonMethodsUtil {
 		}
 		// ExecLog.clilogger.info("Locator being used: " + elem.toString());
 		return elem;
+	}
+
+	public static void waitForElementToLoad(WebDriver driver, int duration, String timeType, String locName) {
+		WebDriverWait wait = null;
+		if (timeType.equalsIgnoreCase("second")) {
+			wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
+		} else if (timeType.equalsIgnoreCase("minute")) {
+			wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
+		} else if (timeType.equalsIgnoreCase("hour")) {
+			wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
+		}
+		WebElement ele = driver.findElement(formByProp(locName));
+		wait.until(ExpectedConditions.visibilityOf(ele));
 	}
 
 }
