@@ -9,6 +9,7 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class CommonMethodsUtil {
 
@@ -39,6 +40,12 @@ public class CommonMethodsUtil {
 		ele.clear();
 		ele.sendKeys(value);
 		
+	}
+	
+	public void hoverOnElement(WebDriver driver, String locName) {
+		By element=formByProp(locName);
+		Actions act=new Actions(driver);
+		act.moveToElement(driver.findElement(element)).build().perform();
 	}
 
 	public static By formByProp(String element) {
@@ -75,5 +82,7 @@ public class CommonMethodsUtil {
 		// ExecLog.clilogger.info("Locator being used: " + elem.toString());
 		return elem;
 	}
+	
+	
 
 }
