@@ -24,6 +24,19 @@ public class AdminPageTest extends TestSetup{
 		admin.clickSaveUser();
 	}
 	
+	@Test 
+	public void verifyNewUser() {
+		admin=new AdminPage(driver);
+		admin.clickAdminTab();
+		admin.verifySystemUsertitle();
+		admin.clickAdd();
+		admin.verifyAddUsertitle();
+		admin.setUserRole("Admin");
+		admin.setEmployeeName("Shivani");
+		admin.clickCancelUser();
+		admin.verifySystemUsertitle();
+	}
+
 	@Test
 	public void verifyCancelUserDetails() {
 		admin=new AdminPage(driver);
