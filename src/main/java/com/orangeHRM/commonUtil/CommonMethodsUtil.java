@@ -107,6 +107,9 @@ public class CommonMethodsUtil {
 		case "cssSelector":
 			elem = By.cssSelector(loc[1]);
 			break;
+		case "ListSelector":
+			elem = By.cssSelector(loc[1]);
+			break;
 		}
 		// ExecLog.clilogger.info("Locator being used: " + elem.toString());
 		return elem;
