@@ -91,6 +91,5 @@ public class AdminPage {
 		CommonMethodsUtil.clickAndWait(driver, "xpath=//a[text()='"+username+"']/parent::td/preceding-sibling::td");
 	}
 	
-		public 
 
 }
