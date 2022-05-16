@@ -39,6 +39,6 @@ public class AdminPageTest extends TestSetup{
 	
 	@Test 
 	public void verifyDeleteUser() {
-		
+		//not using any code
 	}
 }
