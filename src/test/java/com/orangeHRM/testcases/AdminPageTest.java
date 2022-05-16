@@ -60,7 +60,12 @@ public class AdminPageTest extends TestSetup{
 		admin.verifyAddUsertitle();
 		admin.setUserRole("Admin");
 		admin.setEmployeeName("Shivani");
+		admin.setUsername("Shivani");
+		admin.setStatus("disable");
+		admin.setPassword("Test@123");
 		admin.clickCancelUser();
 		admin.verifySystemUsertitle();
+
+		
 	}
 }
