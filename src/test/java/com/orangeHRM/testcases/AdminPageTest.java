@@ -52,6 +52,16 @@ public class AdminPageTest extends TestSetup{
 	
 	@Test 
 	public void verifyDeleteUser() {
-		//not using any code
+		admin=new AdminPage(driver);
+		admin.clickAdminTab();
+		admin.verifySystemUsertitle();
+		admin.clickAdd();
+		admin.verifyAddUsertitle();
+		admin.setUserRole("Admin");
+		admin.setEmployeeName("Shivani");
+		admin.setUsername("Shivani");
+		admin.setStatus("Enabled");
+		admin.setPassword("Test@123");
+		
 	}
 }
