@@ -39,6 +39,15 @@ public class AdminPageTest extends TestSetup{
 	
 	@Test 
 	public void verifyDeleteUser() {
-		//not using any code
+		//just for git practice remove later below code
+		admin=new AdminPage(driver);
+		admin.clickAdminTab();
+		admin.verifySystemUsertitle();
+		admin.clickAdd();
+		admin.verifyAddUsertitle();
+		admin.setUserRole("Admin");
+		admin.setEmployeeName("Shivani");
+		admin.clickCancelUser();
+		admin.verifySystemUsertitle();
 	}
 }
