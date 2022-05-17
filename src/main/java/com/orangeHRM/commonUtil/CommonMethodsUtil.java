@@ -107,12 +107,6 @@ public class CommonMethodsUtil {
 		case "cssSelector":
 			elem = By.cssSelector(loc[1]);
 			break;
-		case "HTMLSelector":
-		    elem = By.cssSelector(loc[1]);
-			break;
-		case "ListSelector":
-			elem = By.cssSelector(loc[1]);
-			break;
 		}
 		return elem;
 	}
