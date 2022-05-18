@@ -19,6 +19,18 @@ public class LoginPageTest extends TestSetup{
 		dashboard.verifyDashboardTabTitle();
 		
 	}
+
+	@Test
+	public void verifyUserSpecificLogin() {
+		login=new LoginPage(driver);
+		dashboard = new DashboardPage(driver);
+		login.setUsername();
+    	login.setPassword();
+    	login.clickLoginButton();;
+		dashboard.verifyDashboardTabTitle();
+		
+	}
+	
 	// F6: Next Line
 	// F5:Inside method
 	// F8: Skip or Goto next breakout
