@@ -28,9 +28,13 @@ public class LoginPageTest extends TestSetup{
     	login.setPassword();
     	login.clickLoginButton();;
 		dashboard.verifyDashboardTabTitle();
-		
 	}
 	
+	public void verifyDashboard() {
+		dashboard = new DashboardPage(driver);
+		dashboard.verifyDashboardTabTitle();
+	}
+
 	// F6: Next Line
 	// F5:Inside method
 	// F8: Skip or Goto next breakout
