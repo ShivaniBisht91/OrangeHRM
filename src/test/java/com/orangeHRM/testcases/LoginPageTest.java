@@ -1,5 +1,6 @@
 package com.orangeHRM.testcases;
 
+import org.apache.commons.lang3.ObjectUtils.Null;
 import org.testng.annotations.Test;
 
 import com.orangeHRM.Pages.DashboardPage;
@@ -21,11 +22,23 @@ public class LoginPageTest extends TestSetup{
 	}
 
 	@Test
+	public void verifyUserSpecificLogin() {
+		login=new LoginPage(driver);
+		dashboard = new DashboardPage(driver);
+		if(null!=login){
+			login.setUsername();
+			login.setPassword();
+			login.clickLoginButton();
+		}
+		
+		dashboard.verifyDashboardTabTitle();
+	}
+	
 	public void verifyDashboard() {
 		dashboard = new DashboardPage(driver);
 		dashboard.verifyDashboardTabTitle();
 	}
-	
+
 	// F6: Next Line
 	// F5:Inside method
 	// F8: Skip or Goto next breakout
